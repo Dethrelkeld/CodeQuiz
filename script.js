@@ -4,6 +4,7 @@ var startButton = document.getElementById("startBtn");
 var startEl = document.getElementById("start");
 var quizEl = document.getElementById("quiz");
 var endEl = document.getElementById("end");
+var answerBox = document.getElementById("answers");
 var Q = 0;
 
 var questions = [
@@ -62,23 +63,23 @@ startButton.addEventListener("click", function(){
     quizEl.classList.remove("hide");
     startQuiz()
 })
-
+// card that starts the quiz
 function startQuiz() {
     console.log("start");
     buildQuestionCard();
-    //start timer
+    //start timer---------------------<
 }
-
+// builds the question card
 function buildQuestionCard() {
 
     var questionTitle = document.getElementById("question-title")
     questionTitle.textContent = questions[Q].question;
-    var answerBox = document.getElementById("answers");
     answerBox.innerHTML = ""
 
     questions[Q].choices.forEach(function(choice){
         console.log(choice);
         var button = document.createElement("button");
+        button.classList.add("list-group-item")
         button.textContent = choice;
         button.setAttribute("value", choice)
 
@@ -88,19 +89,27 @@ function buildQuestionCard() {
         
     })
 }
-
+// determine right or wrong
 function evalAnswer() {
-    console.log(this.value)
-    // determining right and wrong
-    Q++;
-    buildQuestionCard()
+    console.log(this.value);
+    this.value
     
+    // determining right and wrong
+    if (Q === 4) {
+        endGameCard();
+    }
+    else {
+        Q++;
+        buildQuestionCard()
+    }
 }
-
+// builds the ending card
 function endGameCard() {
-
+    console.log("ending");
+    answerBox.innerHTML = "";
+    quizEl.classList.add("hide");
+    endEl.classList.remove("hide");
 }
 
-// end gam card
 // score object
 // saving to local storage
