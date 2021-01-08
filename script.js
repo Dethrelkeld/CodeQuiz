@@ -1,8 +1,9 @@
 //Globals
 
 var startButton = document.getElementById("startBtn");
-var startEl = document.getElementById("start")
+var startEl = document.getElementById("start");
 var quizEl = document.getElementById("quiz");
+var endEl = document.getElementById("end");
 var Q = 0;
 
 var questions = [
@@ -94,6 +95,10 @@ function evalAnswer() {
     Q++;
     buildQuestionCard()
     
+}
+
+function endGameCard() {
+
 }
 
 // end gam card
