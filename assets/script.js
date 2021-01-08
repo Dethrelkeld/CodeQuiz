@@ -144,10 +144,11 @@ function evalAnswer() {
 // builds the ending card
 function endGameCard() {
     console.log("ending");
+    console.log(score);
     answerBox.innerHTML = "";
     quizEl.classList.add("hide");
     endEl.classList.remove("hide");
-    scoreEl.textContent(score)
+    scoreEl.textContent(score);
 }
 
 // saving to local storage
