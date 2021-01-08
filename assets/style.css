@@ -4,6 +4,11 @@ body {
     background-position: center;
 }
 
+
+nav {
+    margin-bottom: 3rem;
+}
+
 .hide {
     display: none;
 }
@@ -12,4 +17,7 @@ body {
     text-align: center;
 }
 
-
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl{
+    padding-right: 35px;
+    padding-left: 35px;
+}

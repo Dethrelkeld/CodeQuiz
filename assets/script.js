@@ -11,6 +11,7 @@ var timeDisplayEl = document.getElementById("timeRemain");
 var timerInterval;
 var secondsLeft = 60;
 var correct = []
+var score = 0
 
 
 var questions = [
@@ -99,7 +100,10 @@ function buildQuestionCard() {
     questions[Q].choices.forEach(function(choice){
         // console.log(choice);
         var button = document.createElement("button");
-        button.classList.add("list-group-item")
+        button.classList.add("list-group-item");
+        button.classList.add("text-white");
+        button.classList.add("mb-3");
+        button.classList.add("bg-dark");
         button.textContent = choice;
         button.setAttribute("value", choice)
 
@@ -111,10 +115,13 @@ function buildQuestionCard() {
 }
 // determine right or wrong and when finished
 function evalAnswer() {
-    console.log("chose " + this.value);
-    console.log("answer was " + questions[Q].answer)
+    console.log("chose: " + this.value);
+    console.log("answer was: " + questions[Q].answer)
     if (this.value === questions[Q].answer) {
       console.log("correct");
+      secondsLeft += 5;
+      score++;
+
 
     }
     else {
@@ -140,6 +147,7 @@ function endGameCard() {
     answerBox.innerHTML = "";
     quizEl.classList.add("hide");
     endEl.classList.remove("hide");
+    scoreEl.textContent(score)
 }
 
 // saving to local storage

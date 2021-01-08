@@ -14,25 +14,25 @@
 <body>
     <div class="container">
         <!-- navbar to hold the timer -->
-        <nav class="navbar navbar-light bg-light">
+        <nav class="navbar navbar-dark bg-dark">
             <div class="container-fluid">
               <span class="navbar-brand mb-0 h1">Time Remaining:<p id="timeRemain"></p></span>
             </div>
           </nav>
         <!-- the cards -->
-          <div class="card">
+          <div class="card text-white bg-dark mb-3">
 
             <!-- Start Card -->
-            <div class="card card-body center" id="start">
-                <h1>Coding Quiz</h1>
+            <div class="card card-body center text-white bg-dark mb-3" id="start">
+                <h1 class="text-white bg-dark mb-3">Coding Quiz</h1>
                     <p class="card-text">Try to answer the questions in the time limit.</p>
                     <p class="card-text">Be careful, wrong answers will reduce your time!</p>
-                    <button class="list-group-item" id="startBtn">Start</button>
+                    <button class="list-group-item text-white bg-dark mb-3" id="startBtn">Start</button>
             </div>
 
             <!-- Quiz Card -->
-            <div class="card hide card-body center" id="quiz">
-                <h3 id="question-title">Question in here</h3>
+            <div class="card hide card-body center text-white bg-dark mb-3" id="quiz">
+                <h3 class="text-white bg-dark mb-3" id="question-title">Question in here</h3>
             </div>
 
             <div class="list-group list-group-flush" id="answers">
@@ -40,7 +40,7 @@
             </div>
 
             <!-- End Card -->
-            <div class="card card-body hide center" id="end">
+            <div class="card card-body hide center text-white bg-dark mb-3" id="end">
                 <h1>It is over!</h1>
                     <p>Your score is:</p>
                         <h2 id="score"></h2>
