@@ -6,6 +6,7 @@ var quizEl = document.getElementById("quiz");
 var endEl = document.getElementById("end");
 var answerBox = document.getElementById("answers");
 var Q = 0;
+var scoreEl = document.getElementById("score") 
 
 var questions = [
     {
@@ -89,7 +90,7 @@ function buildQuestionCard() {
         
     })
 }
-// determine right or wrong
+// determine right or wrong and when finished
 function evalAnswer() {
     console.log(this.value);
     this.value
