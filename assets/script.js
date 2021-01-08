@@ -6,7 +6,10 @@ var quizEl = document.getElementById("quiz");
 var endEl = document.getElementById("end");
 var answerBox = document.getElementById("answers");
 var Q = 0;
-var scoreEl = document.getElementById("score") 
+var scoreEl = document.getElementById("score");
+var timeDisplayEl = document.getElementById("timeRemain");
+var timerInterval
+var secondsLeft = 60
 
 var questions = [
     {
@@ -66,10 +69,24 @@ startButton.addEventListener("click", function(){
 })
 // card that starts the quiz
 function startQuiz() {
-    console.log("start");
+    console.log("start"); 
     buildQuestionCard();
-    //start timer---------------------<
+    startTimer();
 }
+
+// Timer function
+function startTimer() {
+  timerInterval = setInterval(function () {
+    secondsLeft--;
+    timeDisplayEl.textContent = secondsLeft; 
+
+    if (secondsLeft <= 0) {
+      clearInterval(timerInterval);
+      return endGameCard(); 
+    }
+  }, 1000);
+}
+
 // builds the question card
 function buildQuestionCard() {
 
@@ -98,6 +115,7 @@ function evalAnswer() {
     // determining right and wrong
     if (Q === 4) {
         endGameCard();
+        clearInterval(timerInterval);
     }
     else {
         Q++;
