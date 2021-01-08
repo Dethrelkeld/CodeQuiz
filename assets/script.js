@@ -8,8 +8,10 @@ var answerBox = document.getElementById("answers");
 var Q = 0;
 var scoreEl = document.getElementById("score");
 var timeDisplayEl = document.getElementById("timeRemain");
-var timerInterval
-var secondsLeft = 60
+var timerInterval;
+var secondsLeft = 60;
+var correct = []
+
 
 var questions = [
     {
@@ -95,7 +97,7 @@ function buildQuestionCard() {
     answerBox.innerHTML = ""
 
     questions[Q].choices.forEach(function(choice){
-        console.log(choice);
+        // console.log(choice);
         var button = document.createElement("button");
         button.classList.add("list-group-item")
         button.textContent = choice;
@@ -109,11 +111,19 @@ function buildQuestionCard() {
 }
 // determine right or wrong and when finished
 function evalAnswer() {
-    console.log(this.value);
-    this.value
+    console.log("chose " + this.value);
+    console.log("answer was " + questions[Q].answer)
+    if (this.value === questions[Q].answer) {
+      console.log("correct");
+
+    }
+    else {
+      console.log("wrong");
+      secondsLeft -= 10
+    }
     
-    // determining right and wrong
-    if (Q === 4) {
+    // ending the quiz portion and stopping the clock
+    if (Q === (questions.length - 1)) {
         endGameCard();
         clearInterval(timerInterval);
     }
@@ -122,6 +132,8 @@ function evalAnswer() {
         buildQuestionCard()
     }
 }
+
+
 // builds the ending card
 function endGameCard() {
     console.log("ending");
@@ -130,5 +142,4 @@ function endGameCard() {
     endEl.classList.remove("hide");
 }
 
-// score object
 // saving to local storage
