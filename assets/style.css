@@ -1,6 +1,9 @@
 body {
     background-image: url(./1479595-matrix-binary-code-falling-wallpaper-1920x1080-retina.jpg);
-    /* background-position: center; */
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 

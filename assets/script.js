@@ -62,7 +62,7 @@ var questions = [
   
   
   
-// event listeners
+  // event listeners
 
 startButton.addEventListener("click", function(){
 
@@ -148,7 +148,7 @@ function endGameCard() {
     answerBox.innerHTML = "";
     quizEl.classList.add("hide");
     endEl.classList.remove("hide");
-    scoreEl.textContent(score);
+    scoreEl.textContent = score;
 }
 
 // saving to local storage
